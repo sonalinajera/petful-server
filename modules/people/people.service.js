@@ -12,6 +12,10 @@ store.people.forEach(person => people.enqueue(person))
 module.exports = {
   get() {
     // Return all people in the queue.
+    const allPeople = {
+      people: people.all(),
+    };
+    return allPeople; 
   },
 
   enqueue(person) {
