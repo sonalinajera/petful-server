@@ -10,13 +10,21 @@ const router = express.Router()
 router
   .get('/', (req, res) => {
   // Return all pets currently up for adoption.
+
   //service call to get all data
-  res.send('All pets!')
+  Pets.getAll
+    .then( pets => {
+      if(!pets) {
+        res.json([]);
+      }
+      return res.status(200).send(pets);
+    })
+    .catch(e => console.log(e))
 })
 
 router
 .get('/cats', (req, res) => {
-  res.status(200).send(cats)
+  
 })
 
 router
