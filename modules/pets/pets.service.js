@@ -13,8 +13,8 @@ store.cats.forEach(cat => pets.cats.enqueue(cat))
 store.dogs.forEach(dog => pets.dogs.enqueue(dog))
 
 // --------------------
-//returns next in line for cats
-console.log(pets.cats.all())
+//returns all in line for cats
+// console.log(pets.cats.all())
 
 // console.log(pets.cats)
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
     const allPets = {
       cats: pets.cats.all(),
       dogs: pets.dogs.all()
-    }
+    };
     return allPets; 
   },
 

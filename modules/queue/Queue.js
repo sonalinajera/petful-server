@@ -2,7 +2,6 @@ class _Node {
   constructor(value) {
     this.value = value;
     this.next = null;
-    this.previous = null;
   }
 }
 
@@ -42,17 +41,23 @@ class Queue {
 
   show() {
     // Return the next item in the queue.
-    return this.first;
+    if(this.first === null) {
+      return 
+    }
+
+    return this.first.value
   }
 
   all() {
     // Return all items in the queue.
+    const allPets = []
     let node = this.first
-    while (node) {
-      console.log(node)
-      node = node.next;
+    while(node) {
+      allPets.push(node.value)
+      node = node.next
     }
-    return;
+
+    return allPets
   }
 }
 
