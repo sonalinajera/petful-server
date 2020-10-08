@@ -12,7 +12,7 @@ router
     // Return all pets currently up for adoption.
 
     //service call to get all data
-    let pets = Pets.getAll()
+    let pets = Pets.get()
     return res.status(200).send(pets);
   })
 
