@@ -28,6 +28,10 @@ router
 
 router.delete('/', json, (req, res) => {
   // Remove a pet from adoption.
+  const { type } = req.body;
+  let removeAnimal = type
+  let nextPets = Pets.dequeue(removeAnimal)
+  return res.status(204).json(nextPets)
 })
 
 module.exports = router

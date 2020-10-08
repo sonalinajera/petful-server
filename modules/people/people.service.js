@@ -20,9 +20,13 @@ module.exports = {
 
   enqueue(person) {
     // Add a person to the queue.
+    people.enqueue(person);
+    return this.get()
   },
 
   dequeue() {
     // Remove a person from the queue.
+    people.dequeue()
+    return this.get()
   }
 }
