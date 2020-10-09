@@ -9,14 +9,10 @@ const pets = {
   dogs: new Queue()
 }
 
+
 store.cats.forEach(cat => pets.cats.enqueue(cat))
 store.dogs.forEach(dog => pets.dogs.enqueue(dog))
 
-// --------------------
-//returns all in line for cats
-// console.log(pets.cats.all())
-
-// console.log(pets.cats)
 module.exports = {
   get() {
     // Return the pets next in line to be adopted.
@@ -27,19 +23,25 @@ module.exports = {
     return nextToBeAdopted;
   },
 
-  getAll(){
+  getAll() {
     const allPets = {
       cats: pets.cats.all(),
       dogs: pets.dogs.all()
     };
-    return allPets; 
+    return allPets;
   },
 
   dequeue(type) {
     // Remove a pet from the queue.
     if (type === 'dogs') {
+      if (pets.dogs.first.next === null) {
+        store.dogs.forEach(dog => pets.dogs.enqueue(dog))
+      }
       pets.dogs.dequeue()
-    } else if (type =='cats'){
+    } else if (type == 'cats') {
+      if (pets.cats.first.next === null) {
+        store.cats.forEach(cat => pets.cats.enqueue(cat))
+      }
       pets.cats.dequeue()
     }
     return this.get();
